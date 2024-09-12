@@ -1,0 +1,23 @@
+<div *ngIf="data && config">
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th *ngFor="let column of config.columns">{{ column.header }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data; let i = index"
+                [ngClass]="{'table-primary': i % 2 === 0, 'table-secondary': i % 2 !== 0}">
+                <td *ngFor="let column of config.columns">{{ item[column.field] }}</td>
+                <td>
+                    <button (click)="onUpdateData(item[config.primaryKey])" class="btn btn-info btn-sm">Update</button>
+                    <button (click)="onDeleteData(item[config.primaryKey])"
+                        class="btn btn-danger btn-sm">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="!data || data.length === 0" class="text-center">
+    No data found.
+</div>

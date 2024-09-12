@@ -1,0 +1,22 @@
+<div class="container">
+    <h2 class="text-center">Create {{entityName}}</h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="jobId">Job ID</label>
+            <input type="text" class="form-control" id="jobId" [(ngModel)]="job.jobId" name="jobId">
+        </div>
+        <div class="form-group">
+            <label for="jobTitle">Job Title</label>
+            <input type="text" class="form-control" id="jobTitle" [(ngModel)]="job.jobTitle" name="jobTitle">
+        </div>
+        <div class="form-group">
+            <label for="minSalary">Minimum Salary</label>
+            <input type="number" class="form-control" id="minSalary" [(ngModel)]="job.minSalary" name="minSalary">
+        </div>
+        <div class="form-group">
+            <label for="maxSalary">Maximum Salary</label>
+            <input type="number" class="form-control" id="maxSalary" [(ngModel)]="job.maxSalary" name="maxSalary">
+        </div>
+        <button class="btn btn-success mt-2" type="submit">Submit</button>
+    </form>
+</div>

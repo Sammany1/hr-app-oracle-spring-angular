@@ -1,0 +1,9 @@
+<div *ngIf="config">
+    <form [formGroup]="entityForm" (ngSubmit)="onSubmit()">
+        <div *ngFor="let column of config.columns">
+            <label [for]="column.field">{{ column.header }}</label>
+            <input [id]="column.field" [formControlName]="column.field" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="entityForm.invalid">Update</button>
+    </form>
+</div>
